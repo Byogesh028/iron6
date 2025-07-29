@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>6-Day Workout Split - Complete Training Plan</title>
+    <title>6-Day Workout Split - Mobile App</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
@@ -15,105 +15,93 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            line-height: 1.5;
             color: #2c3e50;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 20px;
         }
         
         .container {
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 100%;
+            margin: 0;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-            overflow: hidden;
+            min-height: 100vh;
         }
         
         .header {
             background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
             color: white;
-            padding: 40px 30px;
+            padding: 20px 15px;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         
         .header h1 {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 5px;
         }
         
         .header p {
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             opacity: 0.9;
-            font-weight: 300;
         }
         
         .content {
-            padding: 40px 30px;
+            padding: 15px;
         }
         
         .overview {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            border-left: 5px solid #3498db;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
         }
         
         .overview h2 {
             color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .overview p {
+            font-size: 0.9rem;
             margin-bottom: 15px;
-            font-size: 1.5rem;
         }
         
         .split-overview {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+            grid-template-columns: 1fr;
+            gap: 8px;
         }
         
         .day-overview {
             background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             border-left: 3px solid #e74c3c;
-        }
-        
-        .day-overview strong {
-            color: #2c3e50;
+            font-size: 0.9rem;
         }
         
         .workout-day {
-            margin-bottom: 40px;
+            margin-bottom: 25px;
             background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             border: 1px solid #f1f2f6;
         }
         
         .workout-day h2 {
             color: #2c3e50;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #3498db;
-            position: relative;
-        }
-        
-        .workout-day h2::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: #e74c3c;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #3498db;
         }
         
         .exercise-list {
@@ -122,85 +110,59 @@
         
         .exercise-item {
             background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            margin-bottom: 15px;
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid #27ae60;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-bottom: 12px;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 3px solid #27ae60;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
         }
         
         .exercise-item:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
         
-        .exercise-item.clickable {
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .exercise-item.clickable::after {
+        .exercise-item::after {
             content: '🎥';
             position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 1.2rem;
+            top: 12px;
+            right: 15px;
+            font-size: 1.1rem;
             opacity: 0.7;
         }
         
-        .exercise-item.clickable:hover::after {
+        .exercise-item:hover::after {
             opacity: 1;
             transform: scale(1.1);
         }
         
         .exercise-name {
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #2c3e50;
             margin-bottom: 8px;
+            padding-right: 30px;
         }
         
         .exercise-details {
             color: #7f8c8d;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             display: flex;
-            align-items: center;
-            gap: 15px;
+            flex-direction: column;
+            gap: 5px;
         }
         
         .sets-reps {
             background: #3498db;
             color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-        
-        .instructions {
-            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
-            padding: 25px;
+            padding: 4px 10px;
             border-radius: 15px;
-            margin-top: 30px;
-            border-left: 5px solid #f39c12;
-        }
-        
-        .instructions h3 {
-            color: #d68910;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-        
-        .instructions ul {
-            list-style-position: inside;
-            color: #8b7355;
-        }
-        
-        .instructions li {
-            margin-bottom: 8px;
-            padding-left: 10px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            width: fit-content;
         }
         
         .rest-day {
@@ -213,62 +175,149 @@
             border-bottom-color: #16a085;
         }
         
-        .rest-day h2::after {
-            background: #27ae60;
-        }
-        
         .note {
             background: #e8f4fd;
             padding: 15px;
-            border-radius: 10px;
-            border-left: 4px solid #3498db;
+            border-radius: 8px;
+            border-left: 3px solid #3498db;
             margin: 15px 0;
-            font-style: italic;
+            font-size: 0.9rem;
             color: #2980b9;
         }
         
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-            
-            .container {
-                box-shadow: none;
-                border-radius: 0;
-            }
-            
-            .workout-day {
-                page-break-inside: avoid;
-                break-inside: avoid;
-            }
+        .instructions {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 25px;
+            border-left: 4px solid #f39c12;
         }
         
-        @media (max-width: 768px) {
+        .instructions h3 {
+            color: #d68910;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .instructions ul {
+            list-style-position: inside;
+            color: #8b7355;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+            padding-left: 5px;
+            font-size: 0.9rem;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal-content {
+            position: relative;
+            width: 95%;
+            height: 80%;
+            margin: 5% auto;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.5);
+            border-radius: 50%;
+        }
+        
+        .close:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding-bottom: 56.25%;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 480px) {
+            .header {
+                padding: 15px 10px;
+            }
+            
             .header h1 {
-                font-size: 2rem;
+                font-size: 1.6rem;
             }
             
             .content {
-                padding: 20px 15px;
+                padding: 10px;
             }
             
             .workout-day {
-                padding: 20px 15px;
+                padding: 12px;
+            }
+            
+            .exercise-item {
+                padding: 12px;
+            }
+            
+            .modal-content {
+                width: 98%;
+                height: 70%;
+                margin: 10% auto;
+            }
+            
+            .close {
+                top: -45px;
+                font-size: 30px;
             }
         }
-
-        #videoModal {
-            display: none;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(4px);
-        }
         
-        #videoModal iframe {
-            border-radius: 12px;
+        /* Landscape mobile */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .modal-content {
+                width: 90%;
+                height: 85%;
+                margin: 2.5% auto;
+            }
         }
-
     </style>
 </head>
 <body>
@@ -308,42 +357,42 @@
             <div class="workout-day">
                 <h2>Day 1 - Chest + Triceps</h2>
                 <ul class="exercise-list">
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=8iPEnn-ltC8')">
+                    <li class="exercise-item" onclick="openVideo('8iPEnn-ltC8')">
                         <div class="exercise-name">Incline Dumbbell Press</div>
                         <div class="exercise-details">
                             <span class="sets-reps">3 sets × 8-10 reps</span>
                             <span>Primary chest movement for upper pec development</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=xUm0BiZCWlQ')">
+                    <li class="exercise-item" onclick="openVideo('xUm0BiZCWlQ')">
                         <div class="exercise-name">Flat Machine Chest Press</div>
                         <div class="exercise-details">
                             <span class="sets-reps">2 sets × 10-12 reps</span>
                             <span>Controlled movement for middle chest</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=eozdVDA78K0')">
+                    <li class="exercise-item" onclick="openVideo('eozdVDA78K0')">
                         <div class="exercise-name">Cable Flys (High to Low)</div>
                         <div class="exercise-details">
                             <span class="sets-reps">2 sets × 12-15 reps</span>
                             <span>Isolation movement for chest definition</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=YbX7Wd8jQ-Q')">
+                    <li class="exercise-item" onclick="openVideo('YbX7Wd8jQ-Q')">
                         <div class="exercise-name">Overhead Cable Triceps Extension</div>
                         <div class="exercise-details">
                             <span class="sets-reps">3 sets × 12 reps</span>
                             <span>Long head triceps focus</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=2-LAMcpzODU')">
+                    <li class="exercise-item" onclick="openVideo('2-LAMcpzODU')">
                         <div class="exercise-name">Rope Pushdown</div>
                         <div class="exercise-details">
                             <span class="sets-reps">2 sets × 15 reps</span>
                             <span>Lateral and medial head emphasis</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=0326dy_-CzM')">
+                    <li class="exercise-item" onclick="openVideo('0326dy_-CzM')">
                         <div class="exercise-name">Close-Grip Push-Ups (Slow)</div>
                         <div class="exercise-details">
                             <span class="sets-reps">1-2 sets to burn</span>
@@ -356,42 +405,42 @@
             <div class="workout-day">
                 <h2>Day 2 - Back + Biceps</h2>
                 <ul class="exercise-list">
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=CAwf7n6Luuc')">
+                    <li class="exercise-item" onclick="openVideo('CAwf7n6Luuc')">
                         <div class="exercise-name">Lat Pulldown (Neutral or Wide)</div>
                         <div class="exercise-details">
                             <span class="sets-reps">3 sets × 10 reps</span>
                             <span>Primary back width builder</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=xQNrFHEMhI4')">
+                    <li class="exercise-item" onclick="openVideo('xQNrFHEMhI4')">
                         <div class="exercise-name">Seated Machine Row</div>
                         <div class="exercise-details">
                             <span class="sets-reps">2 sets × 10-12 reps</span>
                             <span>Mid-back thickness and rhomboids</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=I0UaRbHQs6I')">
+                    <li class="exercise-item" onclick="openVideo('I0UaRbHQs6I')">
                         <div class="exercise-name">Straight-Arm Pulldown</div>
                         <div class="exercise-details">
                             <span class="sets-reps">2 sets × 15 reps</span>
                             <span>Lat isolation and mind-muscle connection</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=soxrZlIl35U')">
+                    <li class="exercise-item" onclick="openVideo('soxrZlIl35U')">
                         <div class="exercise-name">Incline DB Curl</div>
                         <div class="exercise-details">
                             <span class="sets-reps">2 sets × 10 reps</span>
                             <span>Long head biceps stretch</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=fIWP-FRFNU0')">
+                    <li class="exercise-item" onclick="openVideo('fIWP-FRFNU0')">
                         <div class="exercise-name">Preacher Curl (Machine/Dumbbell/Cable)</div>
                         <div class="exercise-details">
                             <span class="sets-reps">2 sets × 12 reps</span>
                             <span>Peak contraction and short head focus</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=zC3nLlEvin4')">
+                    <li class="exercise-item" onclick="openVideo('zC3nLlEvin4')">
                         <div class="exercise-name">Hammer Curl (Light)</div>
                         <div class="exercise-details">
                             <span class="sets-reps">1 set × 15 reps</span>
@@ -404,42 +453,42 @@
             <div class="workout-day">
                 <h2>Day 3 - Shoulders + Legs</h2>
                 <ul class="exercise-list">
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=F6EbdVVGq3M')">
+                    <li class="exercise-item" onclick="openVideo('F6EbdVVGq3M')">
                         <div class="exercise-name">Seated DB Overhead Press</div>
                         <div class="exercise-details">
                             <span class="sets-reps">3 sets × 8 reps</span>
                             <span>Primary shoulder mass builder</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=3VcKaA0AP6Y')">
+                    <li class="exercise-item" onclick="openVideo('3VcKaA0AP6Y')">
                         <div class="exercise-name">Cable Lateral Raises</div>
                         <div class="exercise-details">
                             <span class="sets-reps">2 sets × 15 reps</span>
                             <span>Medial deltoid isolation</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=ea7KoGNBGx')">
+                    <li class="exercise-item" onclick="openVideo('ea7KoGNBGx8')">
                         <div class="exercise-name">Rear Delt Fly (Pec Deck/Dumbbell/Cable)</div>
                         <div class="exercise-details">
                             <span class="sets-reps">2 sets × 12 reps</span>
                             <span>Posterior deltoid development</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=IZxyjW7MPJQ')">
+                    <li class="exercise-item" onclick="openVideo('IZxyjW7MPJQ')">
                         <div class="exercise-name">Leg Press (Light/Moderate)</div>
                         <div class="exercise-details">
                             <span class="sets-reps">3 sets × 12 reps</span>
                             <span>Quad and glute development</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=1Tq3QdYUuHs')">
+                    <li class="exercise-item" onclick="openVideo('1Tq3QdYUuHs')">
                         <div class="exercise-name">Leg Curl (Seated or Lying)</div>
                         <div class="exercise-details">
                             <span class="sets-reps">2 sets × 15 reps</span>
                             <span>Hamstring isolation</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=gwLzBJYoWlI')">
+                    <li class="exercise-item" onclick="openVideo('gwLzBJYoWlI')">
                         <div class="exercise-name">Calf Raises (Machine)</div>
                         <div class="exercise-details">
                             <span class="sets-reps">2 sets × 20 reps</span>
@@ -452,42 +501,42 @@
             <div class="workout-day">
                 <h2>Day 4 - Chest + Triceps (Variation)</h2>
                 <ul class="exercise-list">
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=X4qqlxKSjbw')">
+                    <li class="exercise-item" onclick="openVideo('X4qqlxKSjbw')">
                         <div class="exercise-name">Machine Incline Press</div>
                         <div class="exercise-details">
                             <span class="sets-reps">3 sets × 10 reps</span>
                             <span>Upper chest with controlled movement</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=Z8SACKHH7ks')">
+                    <li class="exercise-item" onclick="openVideo('Z8SACKHH7ks')">
                         <div class="exercise-name">Pec Deck (Squeeze-Focused)</div>
                         <div class="exercise-details">
                             <span class="sets-reps">2 sets × 12 reps</span>
                             <span>Inner chest and peak contraction</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=2z8JmcrW-As')">
+                    <li class="exercise-item" onclick="openVideo('2z8JmcrW-As')">
                         <div class="exercise-name">Dips or Assisted Dips</div>
                         <div class="exercise-details">
                             <span class="sets-reps">2 sets × 10 reps</span>
                             <span>Lower chest and triceps compound</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=d_KZxkY_0cM')">
+                    <li class="exercise-item" onclick="openVideo('d_KZxkY_0cM')">
                         <div class="exercise-name">Skull Crushers (EZ Bar)</div>
                         <div class="exercise-details">
                             <span class="sets-reps">2 sets × 12 reps</span>
                             <span>Long head triceps stretch</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=6SS6K3lAwZ8')">
+                    <li class="exercise-item" onclick="openVideo('6SS6K3lAwZ8')">
                         <div class="exercise-name">Single-Arm Cable Kickback</div>
                         <div class="exercise-details">
                             <span class="sets-reps">2 sets × 15 reps</span>
                             <span>Triceps isolation and definition</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=nrTP9aaDm7w')">
+                    <li class="exercise-item" onclick="openVideo('nrTP9aaDm7w')">
                         <div class="exercise-name">Triceps Stretch (Static)</div>
                         <div class="exercise-details">
                             <span class="sets-reps">30 secs each side</span>
@@ -500,42 +549,42 @@
             <div class="workout-day">
                 <h2>Day 5 - Back + Biceps (Variation)</h2>
                 <ul class="exercise-list">
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=UCXxvVItLoM')">
+                    <li class="exercise-item" onclick="openVideo('UCXxvVItLoM')">
                         <div class="exercise-name">Chest-Supported Row</div>
                         <div class="exercise-details">
                             <span class="sets-reps">3 sets × 10 reps</span>
                             <span>Upper back thickness</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=lueEJGjTuPQ')">
+                    <li class="exercise-item" onclick="openVideo('lueEJGjTuPQ')">
                         <div class="exercise-name">Pull-Down with Supinated Grip</div>
                         <div class="exercise-details">
                             <span class="sets-reps">2 sets × 10-12 reps</span>
                             <span>Lower lats and biceps recruitment</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=roCP6wCXPqo')">
+                    <li class="exercise-item" onclick="openVideo('roCP6wCXPqo')">
                         <div class="exercise-name">One-Arm Cable Row</div>
                         <div class="exercise-details">
                             <span class="sets-reps">2 sets × 12 reps</span>
                             <span>Unilateral back development</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=ykJmrZ5v0Oo')">
+                    <li class="exercise-item" onclick="openVideo('ykJmrZ5v0Oo')">
                         <div class="exercise-name">Barbell or Cable Curl</div>
                         <div class="exercise-details">
                             <span class="sets-reps">2 sets × 10 reps</span>
                             <span>Overall biceps mass</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=0AUGkch3tzc')">
+                    <li class="exercise-item" onclick="openVideo('0AUGkch3tzc')">
                         <div class="exercise-name">Concentration Curl</div>
                         <div class="exercise-details">
                             <span class="sets-reps">2 sets × 12-15 reps</span>
                             <span>Peak contraction and isolation</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=CLemDW17u1k')">
+                    <li class="exercise-item" onclick="openVideo('CLemDW17u1k')">
                         <div class="exercise-name">Wrist Curls (Optional)</div>
                         <div class="exercise-details">
                             <span class="sets-reps">2 sets × 20 reps</span>
@@ -548,42 +597,42 @@
             <div class="workout-day">
                 <h2>Day 6 - Shoulders + Legs (Variation)</h2>
                 <ul class="exercise-list">
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=2yjwXTZQDDI')">
+                    <li class="exercise-item" onclick="openVideo('2yjwXTZQDDI')">
                         <div class="exercise-name">Barbell Overhead Press (Light)</div>
                         <div class="exercise-details">
                             <span class="sets-reps">3 sets × 10 reps</span>
                             <span>Core stability and shoulder strength</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=3ml7BH7mNwQ')">
+                    <li class="exercise-item" onclick="openVideo('3ml7BH7mNwQ')">
                         <div class="exercise-name">Dumbbell Lateral Raise Dropset</div>
                         <div class="exercise-details">
                             <span class="sets-reps">2 rounds</span>
                             <span>Intensity technique for deltoids</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=6yMdhi2DVao')">
+                    <li class="exercise-item" onclick="openVideo('6yMdhi2DVao')">
                         <div class="exercise-name">Rear Delt Row (Controlled and Paused)</div>
                         <div class="exercise-details">
                             <span class="sets-reps">2 sets × 15 reps</span>
                             <span>Posterior deltoid emphasis</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=dQqApCGd5Ss')">
+                    <li class="exercise-item" onclick="openVideo('dQqApCGd5Ss')">
                         <div class="exercise-name">Bodyweight Step-Ups or Leg Extensions</div>
                         <div class="exercise-details">
                             <span class="sets-reps">2 sets × 15 reps</span>
                             <span>Functional leg strength</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=1uDiW5V6RgY')">
+                    <li class="exercise-item" onclick="openVideo('1uDiW5V6RgY')">
                         <div class="exercise-name">SLDL (Stiff Leg Deadlift)</div>
                         <div class="exercise-details">
                             <span class="sets-reps">2 sets × 12 reps</span>
                             <span>Hamstring and glute development</span>
                         </div>
                     </li>
-                    <li class="exercise-item clickable" onclick="openVideo('https://www.youtube.com/watch?v=56eTM6kPMFk')">
+                    <li class="exercise-item" onclick="openVideo('56eTM6kPMFk')">
                         <div class="exercise-name">Standing Calf Raise</div>
                         <div class="exercise-details">
                             <span class="sets-reps">2 sets × 25 reps</span>
@@ -597,7 +646,7 @@
                 <h2>Day 7 - Rest / Active Recovery</h2>
                 <div class="note">
                     <strong>Active Recovery Options:</strong>
-                    <ul style="margin-top: 10px;">
+                    <ul style="margin-top: 10px; list-style-position: inside;">
                         <li>Light walking (20-30 minutes)</li>
                         <li>Gentle stretching routine</li>
                         <li>Foam rolling session</li>
@@ -628,31 +677,27 @@
         </div>
     </div>
 
-    <!-- Modal Container -->
-    <div id="videoModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
-        <div style="position:relative; width:90%; max-width:800px;">
-            <span onclick="closeVideo()" style="position:absolute; top:-40px; right:0; font-size:2rem; color:white; cursor:pointer;">&times;</span>
-            <iframe id="videoFrame" width="100%" height="450" frameborder="0" allowfullscreen></iframe>
+    <!-- Video Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeVideo()">&times;</span>
+            <div class="video-container">
+                <iframe id="videoFrame" src="" allowfullscreen></iframe>
+            </div>
         </div>
     </div>
-
     
     <script>
-       function openVideo(url) {
-            const modal = document.getElementById("videoModal");
-            const frame = document.getElementById("videoFrame");
-            const embedUrl = url.replace("watch?v=", "embed/") + "?autoplay=1";
-            frame.src = embedUrl;
-            modal.style.display = "flex";
-        }
-        
-        function closeVideo() {
-            const modal = document.getElementById("videoModal");
-            const frame = document.getElementById("videoFrame");
-            frame.src = "";
-            modal.style.display = "none";
+        function openVideo(videoId) {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('videoFrame');
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
         }
 
-    </script>
-</body>
-</html>
+        function closeVideo() {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('videoFrame');
+            iframe.src = '';
+            modal.style.display = 'none';
