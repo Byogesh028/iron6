@@ -688,7 +688,7 @@
     </div>
     
     <script>
-        function openVideo(videoId) {
+         function openVideo(videoId) {
             const modal = document.getElementById('videoModal');
             const iframe = document.getElementById('videoFrame');
             iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
@@ -701,3 +701,22 @@
             const iframe = document.getElementById('videoFrame');
             iframe.src = '';
             modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close modal when clicking outside the video
+        window.onclick = function(event) {
+            const modal = document.getElementById('videoModal');
+            if (event.target === modal) {
+                closeVideo();
+            }
+        }
+
+        // Handle escape key to close modal
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeVideo();
+            }
+        });
+
+    </script>
