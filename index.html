@@ -688,35 +688,24 @@
     </div>
     
     <script>
-         function openVideo(videoId) {
-            const modal = document.getElementById('videoModal');
-            const iframe = document.getElementById('videoFrame');
-            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
+            function openVideo(url) {
+            window.open(url, '_blank');
+       function openVideo(url) {
+            const modal = document.getElementById("videoModal");
+            const frame = document.getElementById("videoFrame");
+            const embedUrl = url.replace("watch?v=", "embed/") + "?autoplay=1";
+            frame.src = embedUrl;
+            modal.style.display = "flex";
         }
-
+        
         function closeVideo() {
-            const modal = document.getElementById('videoModal');
-            const iframe = document.getElementById('videoFrame');
-            iframe.src = '';
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Restore scrolling
+            const modal = document.getElementById("videoModal");
+            const frame = document.getElementById("videoFrame");
+            frame.src = "";
+            modal.style.display = "none";
         }
-
-        // Close modal when clicking outside the video
-        window.onclick = function(event) {
-            const modal = document.getElementById('videoModal');
-            if (event.target === modal) {
-                closeVideo();
-            }
-        }
-
-        // Handle escape key to close modal
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeVideo();
-            }
-        });
 
     </script>
+</body>
+</html>
+</html>
