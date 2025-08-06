@@ -712,16 +712,29 @@
         </div>
     </div> -->
 
-<div id="videoModal" style="display:none;">
+<!-- <div id="videoModal" style="display:none;">
     <span onclick="closeVideo()"
                 style="position:absolute; top:-40px; right:0; font-size:2rem; color:white; cursor:pointer;">&times;</span>
         <div class="content-oser">
             
             <iframe width="560" height="315" id="videoFrame" src="https://www.youtube.com/embed/JexOJOssGwk?rel=0&enablejsapi=1&origin=https%3A%2F%2Fwww.apetito.co.uk&widgetid=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
+    </div> -->
+
+<!-- Video Modal -->
+<div id="videoModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:1000;">
+    <span onclick="closeVideo()"
+          style="position:absolute; top:20px; right:40px; font-size:2rem; color:white; cursor:pointer;">&times;</span>
+    
+    <div class="content-oser" style="position:relative; width:90%; max-width:800px;">
+        <iframe width="100%" height="450" id="videoFrame" 
+                src="https://www.youtube.com/embed/JexOJOssGwk?rel=0&enablejsapi=1&origin=https%3A%2F%2Fwww.apetito.co.uk&widgetid=1" 
+                title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
     </div>
-
-
+</div>
+    
     <script>
         function openVideo(url) {
             const modal = document.getElementById("videoModal");
@@ -741,6 +754,7 @@
 </body>
 
 </html>
+
 
 
 
