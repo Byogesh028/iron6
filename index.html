@@ -219,27 +219,56 @@
             color: #2980b9;
         }
 
+        /* The Modal background */
         #videoModal {
-            display: none;
-            position: fixed;
-            top: 0;
+            display: none; /* Hidden by default. Changed to 'flex' with JS to show. */
+            position: fixed; /* Stay in place */
+            z-index: 9999; /* Sit on top */
             left: 0;
+            top: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 9999;
+            background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+            backdrop-filter: blur(4px); /* Frosted glass effect */
+        
+            /* Flexbox for centering */
+            display: flex;
             justify-content: center;
             align-items: center;
-            backdrop-filter: blur(4px);
         }
 
-        #videoModal iframe {
+        /* The container for the video and close button */
+        .video-container {
+            position: relative;
+            width: 90%;
+            max-width: 850px; /* Max width of the video player */
+        }
+        
+        /* The Iframe for responsive video */
+        .video-container iframe {
+            width: 100%; /* Take up full width of its container */
+            height: auto; /* Height is calculated automatically */
+            aspect-ratio: 16 / 9; /* Modern way to maintain 16:9 aspect ratio */
             border-radius: 12px;
-            width: 95vw;
-            height: 53.43vw;
-            /* 16:9 aspect ratio */
+            border: none; /* Removes the default iframe border */
         }
-
+        
+        /* The Close Button */
+        .close-button {
+            position: absolute;
+            top: -35px; /* Position above the video */
+            right: 0;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-button:hover {
+            color: #bbb;
+        }
+        
         /* --- Mobile Responsive Styles --- */
         @media (max-width: 768px) {
             body {
@@ -698,11 +727,18 @@
         </div>
     </div>
 
-    <div id="videoModal" style="display:none;">
+<!--     <div id="videoModal" style="display:none;">
         <div style="position:relative; width:90%; max-width:800px;">
             <span onclick="closeVideo()"
                 style="position:absolute; top:-40px; right:0; font-size:2rem; color:white; cursor:pointer;">&times;</span>
             <iframe id="videoFrame" width="100%" height="450" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div> -->
+    
+    <div id="videoModal">
+        <div class="video-container">
+            <span class="close-button" onclick="closeVideo()">&times;</span>
+            <iframe id="videoFrame" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
     
@@ -725,6 +761,7 @@
 </body>
 
 </html>
+
 
 
 
