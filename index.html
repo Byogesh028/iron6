@@ -748,19 +748,20 @@
             const frame = document.getElementById("videoFrame");
             const embedUrl = url.replace("watch?v=", "embed/") + "?autoplay=1";
             frame.src = embedUrl;
-            modal.style.display = "flex";
+            modal.style.display = 'flex'; 
         }
 
         function closeVideo() {
             const modal = document.getElementById("videoModal");
             const frame = document.getElementById("videoFrame");
             frame.src = "";
-            modal.style.display = "none";
+            modal.style.display = 'none'; 
         }
     </script>
 </body>
 
 </html>
+
 
 
 
