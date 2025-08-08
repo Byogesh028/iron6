@@ -221,18 +221,23 @@
 
         /* The Modal background */
         #videoModal {
-            display: none; /* Hidden by default. Changed to 'flex' with JS to show. */
-            position: fixed; /* Stay in place */
-            z-index: 9999; /* Sit on top */
+            display: none;
+            /* Hidden by default. Changed to 'flex' with JS to show. */
+            position: fixed;
+            /* Stay in place */
+            z-index: 9999;
+            /* Sit on top */
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
-            backdrop-filter: blur(4px); /* Frosted glass effect */
-        
+            background-color: rgba(0, 0, 0, 0.8);
+            /* Black w/ opacity */
+            backdrop-filter: blur(4px);
+            /* Frosted glass effect */
+
             /* Flexbox for centering */
-/*             display: flex; */
+            /*             display: flex; */
             justify-content: center;
             align-items: center;
         }
@@ -241,37 +246,42 @@
         .video-container {
             position: relative;
             width: 90%;
-            max-width: 850px; /* Max width of the video player */
+            max-width: 850px;
+            /* Max width of the video player */
         }
-        
+
         /* The Iframe for responsive video */
         .video-container iframe {
-            width: 100%; /* Take up full width of its container */
-            height: auto; /* Height is calculated automatically */
-            aspect-ratio: 16 / 9; /* Modern way to maintain 16:9 aspect ratio */
+            width: 100%;
+            /* Take up full width of its container */
+            height: auto;
+            /* Height is calculated automatically */
+            aspect-ratio: 16 / 9;
+            /* Modern way to maintain 16:9 aspect ratio */
             border-radius: 12px;
-            border: none; /* Removes the default iframe border */
+            border: none;
+            /* Removes the default iframe border */
         }
-        
+
         /* The Close Button */
         .close-button {
             /* Replaces absolute positioning */
-            float: right; 
-            
+            float: right;
+
             /* Adds some space around the button so it's not touching the edges */
             margin: 5px 10px 0 0;
-        
+
             color: white;
             font-size: 2.5rem;
             font-weight: bold;
             cursor: pointer;
             transition: color 0.3s;
         }
-        
+
         .close-button:hover {
             color: #bbb;
         }
-        
+
         /* --- Mobile Responsive Styles --- */
         @media (max-width: 768px) {
             body {
@@ -329,6 +339,7 @@
 </head>
 
 <body>
+    <a href="https://www.buymeacoffee.com/Byogesh028" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;"></a>
     <div class="container">
         <div class="header">
             <h1>💪 6-Day Workout Split</h1>
