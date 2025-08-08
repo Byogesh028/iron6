@@ -219,11 +219,66 @@
             color: #2980b9;
         }
 
-        /* New style for the Buy Me A Coffee button container */
-        .bmac-button-container {
-            text-align: center;
-            margin-top: 30px; /* Space above the button */
-            margin-bottom: 30px; /* Space below the button */
+        /* Styles for the integrated support section */
+        .support-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); /* Light background */
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px; /* Space above this section */
+            margin-bottom: 30px; /* Space below this section */
+            text-align: center; /* Center content within this section */
+            border-left: 5px solid #3498db; /* Blue accent border */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+        }
+
+        .support-section h2 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .support-section p {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .support-section ul {
+            list-style: none; /* Remove default list style */
+            padding: 0;
+            margin: 0 auto 25px auto; /* Center list and add space below */
+            max-width: 400px; /* Limit width for readability */
+        }
+
+        .support-section li {
+            margin-bottom: 10px;
+            color: #444;
+            font-size: 1rem;
+            position: relative;
+            padding-left: 25px; /* Space for custom bullet */
+            text-align: left; /* Align list items left */
+        }
+
+        .support-section li::before {
+            content: '✨'; /* Custom bullet point */
+            position: absolute;
+            left: 0;
+            color: #3498db; /* Blue color for the bullet */
+            font-size: 1.2em;
+            line-height: 1;
+            top: 0;
+        }
+
+        .support-section .bmac-button-wrapper {
+            display: inline-block; /* Allows margin auto for centering */
+            margin-top: 20px; /* Space above the button */
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .support-section .bmac-button-wrapper:hover {
+            transform: translateY(-3px); /* Subtle lift effect on hover */
         }
 
         /* The Modal background */
@@ -322,6 +377,16 @@
 
             .exercise-details span:not(.sets-reps) {
                 line-height: 1.4;
+            }
+
+            .support-section h2 {
+                font-size: 1.3rem;
+            }
+            .support-section p, .support-section li {
+                font-size: 0.95rem;
+            }
+            .support-section {
+                padding: 20px;
             }
         }
 
@@ -743,15 +808,32 @@
                 start with 2-3 exercises per muscle group. Advanced trainees can add 1-2 additional exercises per
                 session. Adjust weights and rep ranges based on your individual capacity and goals.
             </div>
+
+            <!-- New Integrated Support Section -->
+            <div class="support-section">
+                <h2>Fuel Your Fitness Journey 💪</h2>
+                <p>If you find value in the workout plans and guides I share, consider buying me a coffee. Every contribution, no matter how small, helps me dedicate more time and effort to bringing you high-quality fitness content.</p>
+
+                <h3>Why Your Support Matters</h3>
+                <ul>
+                    <li>✨ **Expand Content:** Develop new workout splits, detailed exercise guides, and nutrition tips.</li>
+                    <li>✨ **Improve Quality:** Invest in better tools and resources to enhance content presentation and accuracy.</li>
+                    <li><li>✨ **Community Building:** Foster a supportive fitness community through interactive features and direct engagement.</li>
+                    <li>✨ **Time & Dedication:** Allow me to commit more time to research, create, and maintain valuable fitness resources for you.</li>
+                </ul>
+                <p style="margin-top: 20px; text-align: center; font-style: italic; color: #666;">Thank you for being a part of this journey!</p>
+
+                <div class="bmac-button-wrapper">
+                    <a href="https://www.buymeacoffee.com/Byogesh028" target="_blank">
+                        <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;">
+                    </a>
+                </div>
+            </div>
+            <!-- End New Integrated Support Section -->
+
         </div>
     </div>
-    <!-- Buy Me A Coffee button moved here -->
-    <div class="bmac-button-container">
-        <a href="https://www.buymeacoffee.com/Byogesh028" target="_blank">
-            <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;">
-        </a>
-    </div>
-    
+
     <div id="videoModal">
         <div class="video-container">
             <span class="close-button" onclick="closeVideo()">&times;</span>
@@ -778,25 +860,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
